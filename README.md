@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # E-Commerce Platform - Week 1 Milestone
 
 ## Project Setup and Static Frontend Development
@@ -206,3 +207,6 @@ Runs on `http://localhost:5000`
 ✅ Backend server setup
 ✅ API endpoints created
 ✅ Project ready for integration testing
+=======
+# Ecommerse-Website-
+>>>>>>> 8b3d8aef5e02962c5bcacbaba056a1d1703d1054
