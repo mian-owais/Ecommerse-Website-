@@ -40,6 +40,7 @@ function HomePage() {
   const [promoEmail, setPromoEmail] = useState('');
   const [promoLoading, setPromoLoading] = useState(false);
   const [promoError, setPromoError] = useState('');
+  const [promoMessage, setPromoMessage] = useState('');
   const [promoCode, setPromoCode] = useState('');
   const [showCouponModal, setShowCouponModal] = useState(false);
 

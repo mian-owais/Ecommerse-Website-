@@ -63,21 +63,6 @@ function Header() {
     }
   };
 
-  const checkAuthStatus = () => {
-    const token = localStorage.getItem('authToken');
-    const userStr = localStorage.getItem('user');
-    
-    if (token && userStr) {
-      setIsLoggedIn(true);
-      setUser(JSON.parse(userStr));
-      // Fetch cart immediately after auth check
-      setTimeout(() => fetchCartCount(), 100);
-    } else {
-      setIsLoggedIn(false);
-      setCartCount(0);
-    }
-  };
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
