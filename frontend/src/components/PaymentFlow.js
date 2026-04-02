@@ -25,7 +25,7 @@ const PaymentFlow = ({ order, onPaymentComplete, onCancel }) => {
   const [uploadLoading, setUploadLoading] = useState(false);
   
   // Payment methods from config
-  const [paymentMethods, setPaymentMethods] = useState([
+  const [paymentMethods] = useState([
     {
       id: 'stripe',
       name: 'Stripe - Credit/Debit Card',

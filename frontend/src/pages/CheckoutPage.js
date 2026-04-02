@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CheckoutPage.css';
-import { cartAPI, ordersAPI, paymentAPI } from '../utils/api';
+import { cartAPI, ordersAPI } from '../utils/api';
 import PaymentFlow from '../components/PaymentFlow';
 
 const CheckoutPage = () => {
@@ -27,10 +27,6 @@ const CheckoutPage = () => {
     paymentMethod: 'cod'
   });
 
-  useEffect(() => {
-    fetchCart();
-  }, []);
-
   const fetchCart = async () => {
     try {
       const response = await cartAPI.getCart();
@@ -46,6 +42,10 @@ const CheckoutPage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchCart();
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -316,7 +316,7 @@ const CheckoutPage = () => {
                     checked={formData.paymentMethod === 'cod'}
                     onChange={handleInputChange}
                   />
-                  <span>í²µ Cash on Delivery (COD)</span>
+                  <span>ï¿½ï¿½ï¿½ Cash on Delivery (COD)</span>
                 </label>
                 <label className="payment-option">
                   <input
@@ -326,7 +326,7 @@ const CheckoutPage = () => {
                     checked={formData.paymentMethod === 'credit-card'}
                     onChange={handleInputChange}
                   />
-                  <span>í²³ Credit Card (Stripe)</span>
+                  <span>ï¿½ï¿½ï¿½ Credit Card (Stripe)</span>
                 </label>
                 <label className="payment-option">
                   <input
@@ -336,7 +336,7 @@ const CheckoutPage = () => {
                     checked={formData.paymentMethod === 'debit-card'}
                     onChange={handleInputChange}
                   />
-                  <span>í²³ Debit Card (Stripe)</span>
+                  <span>ï¿½ï¿½ï¿½ Debit Card (Stripe)</span>
                 </label>
                 <label className="payment-option">
                   <input
@@ -346,7 +346,7 @@ const CheckoutPage = () => {
                     checked={formData.paymentMethod === 'stripe'}
                     onChange={handleInputChange}
                   />
-                  <span>í²³ Stripe Payment</span>
+                  <span>ï¿½ï¿½ï¿½ Stripe Payment</span>
                 </label>
                 <label className="payment-option">
                   <input
@@ -356,7 +356,7 @@ const CheckoutPage = () => {
                     checked={formData.paymentMethod === 'easypaisa'}
                     onChange={handleInputChange}
                   />
-                  <span>í³± EasyPaisa</span>
+                  <span>ï¿½ï¿½ï¿½ EasyPaisa</span>
                 </label>
                 <label className="payment-option">
                   <input
@@ -366,7 +366,7 @@ const CheckoutPage = () => {
                     checked={formData.paymentMethod === 'jazzcash'}
                     onChange={handleInputChange}
                   />
-                  <span>í³² JazzCash</span>
+                  <span>ï¿½ï¿½ï¿½ JazzCash</span>
                 </label>
                 <label className="payment-option">
                   <input
@@ -376,7 +376,7 @@ const CheckoutPage = () => {
                     checked={formData.paymentMethod === 'bank-transfer'}
                     onChange={handleInputChange}
                   />
-                  <span>í¿¦ Bank Transfer</span>
+                  <span>ï¿½ï¿½ï¿½ Bank Transfer</span>
                 </label>
               </div>
 

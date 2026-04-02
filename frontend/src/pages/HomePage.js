@@ -39,7 +39,6 @@ function HomePage() {
   // Promo section state
   const [promoEmail, setPromoEmail] = useState('');
   const [promoLoading, setPromoLoading] = useState(false);
-  const [promoMessage, setPromoMessage] = useState('');
   const [promoError, setPromoError] = useState('');
   const [promoCode, setPromoCode] = useState('');
   const [showCouponModal, setShowCouponModal] = useState(false);
@@ -74,13 +73,6 @@ function HomePage() {
       setLoading(false);
     }
   };
-
-  const defaultCategories = [
-    { name: 'Electronics', emoji: '📱' },
-    { name: 'Accessories', emoji: '🎧' },
-    { name: 'Gadgets', emoji: '⚙️' },
-    { name: 'Wearables', emoji: '⌚' },
-  ];
 
   // Handle promo offer claim
   const handleClaimOffer = async (e) => {

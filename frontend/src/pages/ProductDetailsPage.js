@@ -44,11 +44,6 @@ function ProductDetailsPage() {
   const [reviewRefreshKey, setReviewRefreshKey] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    fetchProduct();
-    checkLoginStatus();
-  }, [id]);
-
   const checkLoginStatus = () => {
     const token = localStorage.getItem('authToken');
     setIsLoggedIn(!!token);
@@ -58,6 +53,7 @@ function ProductDetailsPage() {
     try {
       setLoading(true);
       setError('');
+
       
       // Fetch product details
       const response = await productAPI.getProduct(id);
@@ -78,6 +74,11 @@ function ProductDetailsPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchProduct();
+    checkLoginStatus();
+  }, [id]);
 
   const handleQuantityChange = (e) => {
     const value = parseInt(e.target.value);

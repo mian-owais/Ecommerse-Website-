@@ -11,6 +11,20 @@ function Header() {
   const [user, setUser] = useState(null);
   const [cartCount, setCartCount] = useState(0);
 
+  const checkAuthStatus = () => {
+    const token = localStorage.getItem('authToken');
+    const userStr = localStorage.getItem('user');
+    
+    if (token && userStr) {
+      setIsLoggedIn(true);
+      setUser(JSON.parse(userStr));
+    } else {
+      setIsLoggedIn(false);
+      setUser(null);
+      setCartCount(0);
+    }
+  };
+
   useEffect(() => {
     checkAuthStatus();
   }, []);

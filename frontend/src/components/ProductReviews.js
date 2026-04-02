@@ -12,10 +12,6 @@ const ProductReviews = ({ productId }) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  useEffect(() => {
-    loadReviews();
-  }, [productId, sortBy, page]);
-
   const loadReviews = async () => {
     try {
       setLoading(true);
@@ -38,6 +34,10 @@ const ProductReviews = ({ productId }) => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadReviews();
+  }, [productId, sortBy, page]);
 
   const handleMarkHelpful = async (reviewId) => {
     try {

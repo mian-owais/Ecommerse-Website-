@@ -30,7 +30,7 @@ const renderProductImage = (image) => {
 };
 
 function ProductListingPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [sortBy, setSortBy] = useState(searchParams.get('sortBy') || 'featured');
@@ -42,14 +42,6 @@ function ProductListingPage() {
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [pagination, setPagination] = useState({});
-
-  useEffect(() => {
-    fetchProducts();
-  }, [selectedCategory, sortBy, page, searchQuery]);
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
 
   const fetchProducts = async () => {
     try {
@@ -85,6 +77,14 @@ function ProductListingPage() {
       console.error('Error fetching categories:', err);
     }
   };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [selectedCategory, sortBy, page, searchQuery]);
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
