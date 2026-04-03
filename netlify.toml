@@ -1,0 +1,7 @@
+[build]
+base = "frontend"
+command = "npm run build"
+publish = "build"
+
+[env]
+REACT_APP_API_URL = "https://ecommerce-fullstack-design-6kyu.onrender.com/api"
